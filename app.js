@@ -1,5 +1,6 @@
 // Require Libraries
 const express = require('express');
+
 // Require tenorjs near the top of the file
 const Tenor = require("tenorjs").client({
     // Replace with your own key
@@ -13,6 +14,9 @@ const app = express();
 
 // Middleware
 const exphbs  = require('express-handlebars');
+
+// Somewhere near the top
+app.use(express.static('public'));
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
