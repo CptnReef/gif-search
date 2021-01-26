@@ -5,12 +5,16 @@ const express = require('express');
 const app = express();
 
 // Middleware
+const exphbs  = require('express-handlebars');
+
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 // Routes
 app.get('/', (req, res) => {
     res.send('Hello Squirrel');
   });
-  
+
 app.get('/:username', (req, res) => {
     // Here you would look up the user from the database
     // Then render the template to display the users's info
